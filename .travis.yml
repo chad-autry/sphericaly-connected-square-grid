@@ -3,7 +3,7 @@ node_js:
 - "4.1"
 env:
   global:
-  - GH_REF: github.com/chad-autry/sphericaly-wrapped-square-grid
+  - GH_REF: github.com/chad-autry/sphericaly-connected-square-grid
 before_install:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
