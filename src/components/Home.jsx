@@ -17,13 +17,11 @@ module.exports = React.createClass({
         }
         return (
             /* jshint ignore:start */
-            <div className="span12">
-            <table style={{borderCollapse:true,border:'1px solid black', tableLayout:'fixed'}}>
+            <table style={{marginLeft:'auto',marginRight:'auto',borderCollapse:true,border:'1px solid black', tableLayout:'fixed'}}>
                <tbody>
                   {cells}
                </tbody>
             </table>
-            </div>
             /* jshint ignore:end */
         );
     }
