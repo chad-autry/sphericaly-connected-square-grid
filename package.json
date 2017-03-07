@@ -1,5 +1,5 @@
 {
-  "name": "sphericaly-wrapped-square-grid",
+  "name": "sphericaly-connected-square-grid",
   "version": "0.0.0",
   "description": "Demo page of wrapping sprites on a 2D map spherically",
   "scripts": {
