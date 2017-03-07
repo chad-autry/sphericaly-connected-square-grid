@@ -1,4 +1,4 @@
-# sphericaly-wrapped-square-grid
+# sphericaly-connected-square-grid
 Demo page of wrapping sprites on a 2D map spherically
 The type of wrapping you might traditionally find in a game (such as Asteroids) actually maps to a torus (donut shape)
 
