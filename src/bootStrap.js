@@ -9,13 +9,7 @@ var ReactDOM = require('react-dom');
 var Redirect = require('react-router').Redirect;
 var Router = require('react-router').Router;
 var Route = require('react-router').Route;
-var useRouterHistory = require('react-router').useRouterHistory;
-var createHistory = require('history').createHistory;
-
-
-const history = useRouterHistory(createHistory)({
-  basename: '/'
-});
+var history = require('react-router').hashHistory;
 
 //Keep references to these outside of the function
 var appRootComponent;
