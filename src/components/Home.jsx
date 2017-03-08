@@ -10,7 +10,7 @@ module.exports = React.createClass({
             for (var j = 0; j < 22; j++) {
                 columns.push(
                     <td style={{width:'20px', height:'20px',border:'1px solid black',textAlign:'center'}}>
-                        <i className="{this.props.mapData.getEntity(i, j)}"></i>
+                        <i className={this.props.mapData.getEntity(i, j)}></i>
                     </td>
                 );
             }
