@@ -18,7 +18,7 @@ module.exports = React.createClass({
         }
         return (
             /* jshint ignore:start */
-            <table onKeyPress={this.props.onKeyPress} style={{marginLeft:'auto',marginRight:'auto',borderCollapse:true,border:'1px solid black', tableLayout:'fixed'}}>
+            <table tabIndex="0" onKeyDown={this.props.onKeyPress} style={{marginLeft:'auto',marginRight:'auto',borderCollapse:true,border:'1px solid black', tableLayout:'fixed'}}>
                <tbody>
                   {cells}
                </tbody>
