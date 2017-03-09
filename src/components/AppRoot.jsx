@@ -38,6 +38,6 @@ module.exports = React.createClass({
     },
     componentWillMount: function() {
         //Should de-register too, but the only component of the demo. Will never unmount
-        document.addEventListener("keyDown", this.onKeyDown, false);
+        document.addEventListener("keydown", this.onKeyDown, false);
     }
 });
