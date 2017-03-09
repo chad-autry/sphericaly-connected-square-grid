@@ -11,21 +11,21 @@ module.exports = React.createClass({
         //Set the initial authentication state
         return {isAuthenticated: false};
     },
-    onKeyPress: function(event) {
+    onKeyDown: function(event) {
         let moved = false;
-        if (event.key == 'w') {
+        if (event.keycode === 38) {
             moved = mapData.up();
-        } else if (event.key == 'a') {
+        } else if (event.keycode === 37) {
             moved = mapData.left();
-        } else if (event.key == 's') {
+        } else if (event.keycode === 40) {
             moved = mapData.down();
-        } else if (event.key == 'd') {
+        } else if (event.keycode === 39) {
             moved = mapData.right();
         }
         forceUpdate();
     },
     render: function() {
-        var childrenWithProps = React.cloneElement(this.props.children, {mapData: mapData, onKeyPress:this.onKeyPress});
+        var childrenWithProps = React.cloneElement(this.props.children, {mapData: mapData});
         return (
             /* jshint ignore:start */
             <div className="container-fluid">
@@ -35,5 +35,9 @@ module.exports = React.createClass({
             </div>
             /* jshint ignore:end */
         );
+    },
+    componentWillMount: function() {
+        //Should de-register too, but the only component of the demo. Will never unmount
+        document.addEventListener("keyDown", this.onKeyDown, false);
     }
 });
