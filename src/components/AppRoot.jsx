@@ -11,8 +11,21 @@ module.exports = React.createClass({
         //Set the initial authentication state
         return {isAuthenticated: false};
     },
+    onKeyPress: function(event) {
+        let moved = false;
+        if (event.key == 'w') {
+            moved = mapData.up();
+        } else if (event.key == 'a') {
+            moved = mapData.left();
+        } else if (event.key == 's') {
+            moved = mapData.down();
+        } else if (event.key == 'd') {
+            moved = mapData.right();
+        }
+        forceUpdate();
+    },
     render: function() {
-        var childrenWithProps = React.cloneElement(this.props.children, {mapData: mapData});
+        var childrenWithProps = React.cloneElement(this.props.children, {mapData: mapData, onKeyPress:this.onKeyPress});
         return (
             /* jshint ignore:start */
             <div className="container-fluid">
