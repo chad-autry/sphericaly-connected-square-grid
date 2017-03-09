@@ -13,16 +13,16 @@ module.exports = React.createClass({
     },
     onKeyDown: function(event) {
         let moved = false;
-        if (event.keycode === 38) {
+        if (event.keyCode === 38) {
             moved = mapData.up();
-        } else if (event.keycode === 37) {
+        } else if (event.keyCode === 37) {
             moved = mapData.left();
-        } else if (event.keycode === 40) {
+        } else if (event.keyCode === 40) {
             moved = mapData.down();
-        } else if (event.keycode === 39) {
+        } else if (event.keyCode === 39) {
             moved = mapData.right();
         }
-        forceUpdate();
+        this.forceUpdate();
     },
     render: function() {
         var childrenWithProps = React.cloneElement(this.props.children, {mapData: mapData});
