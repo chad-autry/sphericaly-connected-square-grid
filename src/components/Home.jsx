@@ -21,7 +21,7 @@ module.exports = React.createClass({
                 <div>
                 <div className="form-group">
                     <label>Edge Wrap Style:</label>
-                    <select value={this.props.wrapStyle} onChange={this.props.onWrapStyleChange} className="form-control">
+                    <select value={this.props.wrapStyle} onChange={this.props.onWrapStyleChanged} className="form-control">
                         <option>Traditional</option>
                         <option>Spherical</option>
                     </select>

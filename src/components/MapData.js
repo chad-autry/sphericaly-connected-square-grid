@@ -81,7 +81,7 @@ module.exports = function MapData(rows, columns) {
        if (this.wrapStyle === "Traditional") {
            nextRow = (this.atRow + 1) % this.rows;
        } else if (this.wrapStyle === "Spherical") {
-           if (this.atRow === this.rows) {
+           if (this.atRow === (this.rows - 1)) {
                nextColumn = (this.atColumn + this.columns/2) % this.columns;
            } else {
               nextRow = this.atRow + 1;
