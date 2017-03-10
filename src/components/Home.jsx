@@ -19,6 +19,13 @@ module.exports = React.createClass({
         return (
             /* jshint ignore:start */
                 <div>
+                <div className="form-group">
+                    <label>Edge Wrap Style:</label>
+                    <select value={this.props.wrapStyle} onChange={this.props.onWrapStyleChange} className="form-control">
+                        <option>Traditional</option>
+                        <option>Spherical</option>
+                    </select>
+                </div>
                 <table style={{marginLeft:'auto',marginRight:'auto',borderCollapse:true,border:'1px solid black', tableLayout:'fixed'}}>
                    <tbody>
                       {cells}

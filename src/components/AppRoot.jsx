@@ -9,7 +9,7 @@ module.exports = React.createClass({
     getInitialState: function() {
 
         //Set the initial authentication state
-        return {isAuthenticated: false};
+        return {wrapStyle: "Traditional"};
     },
     onKeyDown: function(event) {
         let moved = false;
@@ -41,8 +41,13 @@ module.exports = React.createClass({
             this.forceUpdate();
         }
     },
+    onWrapStyleChanged: function(event) {
+        mapData.setWrapStyle(event.target.value); 
+        this.setState({wrapStyle: event.target.value});
+    },
     render: function() {
-        var childrenWithProps = React.cloneElement(this.props.children, {mapData: mapData, arrowClicked: this.arrowClicked});
+        var childrenWithProps = React.cloneElement(this.props.children, {onWrapStyleChanged: this.onWrapStyleChanged,
+            wrapStyle:this.state.wrapStyle, mapData: mapData, arrowClicked: this.arrowClicked});
         return (
             /* jshint ignore:start */
             <div className="container-fluid">

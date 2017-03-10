@@ -1,6 +1,7 @@
 
 
 module.exports = function MapData(rows, columns) {
+    this.wrapStyle = "Traditional";
     this.rows = rows;
     this.columns = columns;
     this.cells = [];
@@ -19,6 +20,10 @@ module.exports = function MapData(rows, columns) {
         }
     }
 
+   this.setWrapStyle = function(wrapStyle) {
+       this.wrapStyle = wrapStyle;
+   };
+
    this.getEntity = function(row, column) {
        if (row === this.atRow && column === this.atColumn) {
            return "fa fa-at";
@@ -28,9 +33,21 @@ module.exports = function MapData(rows, columns) {
    };
 
    this.up = function() {
-       let nextRow = ((this.atRow - 1) + this.rows) % this.rows;        
-       if (this.cells[nextRow][this.atColumn] === "") {
+       let nextRow = this.atRow;
+       let nextColumn = this.atColumn;
+       if (this.wrapStyle === "Traditional") {
+           nextRow = ((this.atRow - 1) + this.rows) % this.rows;        
+       } else if (this.wrapStyle === "Spherical") {
+           if (nextRow === 0) {
+               nextColumn = (this.atColumn + this.columns / 2) % this.columns;
+           } else {
+               nextRow = this.atRow - 1;
+           }
+       }
+
+       if (this.cells[nextRow][nextColumn] === "") {
            this.atRow = nextRow;
+           this.atColumn = nextColumn;
            return true;
        } else {
            return false;
@@ -58,9 +75,21 @@ module.exports = function MapData(rows, columns) {
    };
 
    this.down = function() {
-       let nextRow = (this.atRow + 1) % this.rows;
-       if (this.cells[nextRow][this.atColumn] === "") {
+       let nextRow = this.atRow;
+       let nextColumn = this.atColumn;
+
+       if (this.wrapStyle === "Traditional") {
+           nextRow = (this.atRow + 1) % this.rows;
+       } else if (this.wrapStyle === "Spherical") {
+           if (this.atRow === this.rows) {
+               nextColumn = (this.atColumn + this.columns/2) % this.columns;
+           } else {
+              nextRow = this.atRow + 1;
+           }
+       }
+       if (this.cells[nextRow][nextColumn] === "") {
            this.atRow = nextRow;
+           this.atColumn = nextColumn;
            return true;
        } else {
            return false;
