@@ -14,15 +14,49 @@ module.exports = React.createClass({
                     </td>
                 );
             }
-            cells.push(<tr style={{border:'1px solid black'}}>{columns}</tr>);
+            cells.push(<tr key={'row'+i} style={{border:'1px solid black'}}>{columns}</tr>);
         }
         return (
             /* jshint ignore:start */
-            <table style={{marginLeft:'auto',marginRight:'auto',borderCollapse:true,border:'1px solid black', tableLayout:'fixed'}}>
-               <tbody>
-                  {cells}
-               </tbody>
-            </table>
+                <div>
+                <table style={{marginLeft:'auto',marginRight:'auto',borderCollapse:true,border:'1px solid black', tableLayout:'fixed'}}>
+                   <tbody>
+                      {cells}
+                   </tbody>
+                </table>
+                <table style={{marginLeft:'auto',marginRight:'auto'}}>
+                    <tbody>
+                        <tr>
+                            <td style={{width:'40px', height:'40px'}}>
+                            </td>
+                            <td style={{width:'40px', height:'40px', textAlign:'center'}}>
+                                <i className="fa fa-arrow-up fa-5x" onClick={() => this.props.arrowClicked("up")}></i>
+                            </td>
+                            <td style={{width:'40px', height:'40px'}}>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style={{width:'40px', height:'40px', textAlign:'center'}}>
+                                <i className="fa fa-arrow-left fa-5x" onClick={() => this.props.arrowClicked("left")}></i>
+                            </td>
+                            <td style={{width:'40px', height:'40px'}}>
+                            </td>
+                            <td style={{width:'40px', height:'40px', textAlign:'center'}}>
+                                <i className="fa fa-arrow-right fa-5x" onClick={() => this.props.arrowClicked("right")}></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style={{width:'40px', height:'40px'}}>
+                            </td>
+                            <td style={{width:'40px', height:'40px', textAlign:'center'}}>
+                                <i className="fa fa-arrow-down fa-5x" onClick={() => this.props.arrowClicked("down")}></i>
+                            </td>
+                            <td style={{width:'40px', height:'40px'}}>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
             /* jshint ignore:end */
         );
     }

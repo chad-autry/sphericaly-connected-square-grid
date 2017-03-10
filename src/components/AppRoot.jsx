@@ -22,10 +22,27 @@ module.exports = React.createClass({
         } else if (event.keyCode === 39) {
             moved = mapData.right();
         }
-        this.forceUpdate();
+        if (moved) {
+            this.forceUpdate();
+        }
+    },
+    arrowClicked: function(arrow) {
+        let moved = false;
+        if (arrow === "up") {
+            moved = mapData.up();
+        } else if (arrow === "left") {
+            moved = mapData.left();
+        } else if (arrow === "down") {
+            moved = mapData.down();
+        } else if (arrow === "right") {
+            moved = mapData.right();
+        }
+        if (moved) {
+            this.forceUpdate();
+        }
     },
     render: function() {
-        var childrenWithProps = React.cloneElement(this.props.children, {mapData: mapData});
+        var childrenWithProps = React.cloneElement(this.props.children, {mapData: mapData, arrowClicked: this.arrowClicked});
         return (
             /* jshint ignore:start */
             <div className="container-fluid">
