@@ -3,10 +3,9 @@
   "version": "0.0.0",
   "description": "Demo page of wrapping sprites on a 2D map spherically",
   "scripts": {
-    "build": "mkdirp ./target/webapp && npm run less && npm run copy:HTML && npm run copy:auth && webpack --config ./webpack-prod.config.js",
+    "build": "mkdirp ./target/webapp && npm run less && npm run copy:HTML && webpack --config ./webpack-prod.config.js",
     "jshint": "jshint ./src/* --extract=auto --extra-ext=jsx",
     "clean": "rimraf ./target",
-    "copy:auth": "copyfiles -f ./src/googleStaticAuth.html ./target/webapp",
     "copy:HTML": "copyfiles -f ./src/index.html ./target/webapp",
     "less": "lessc ./src/less/main.less > ./target/webapp/styles.css",
     "server": "webpack-dev-server --content-base ./target/webapp --port 3000"
