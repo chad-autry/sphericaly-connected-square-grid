@@ -24,6 +24,8 @@ module.exports = React.createClass({
                     <select value={this.props.wrapStyle} onChange={this.props.onWrapStyleChanged} className="form-control">
                         <option>Traditional</option>
                         <option>Spherical</option>
+                        <option>Spherical Flip</option>
+                        <option>Spherical Follow</option>
                     </select>
                 </div>
                 <table style={{marginLeft:'auto',marginRight:'auto',borderCollapse:true,border:'1px solid black', tableLayout:'fixed'}}>
